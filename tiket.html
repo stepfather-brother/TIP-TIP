@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Pilih Tiket - [SOLO] Timeless Project Live | TipTip</title>
+<meta name="description" content="Pilih kategori dan jumlah tiket [SOLO] Timeless Project Live.">
+<meta property="og:title" content="[SOLO] Timeless Project Live — Pilih Tiket">
+<meta property="og:description" content="Pilih kategori dan jumlah tiket [SOLO] Timeless Project Live · 13 Nov 2026 · De Tjolomadoe.">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#6558e8">
+<style>
+:root{--ink:#17181a;--muted:#858b94;--line:#e7e9ed;--gray:#f6f7f9;--brand:#6558e8;--brand2:#8b5cf6;--grad:linear-gradient(135deg,var(--brand),var(--brand2));--green:#08a85b;--pink:#d23369}
+*{box-sizing:border-box}[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+@view-transition{navigation:auto}
+body{margin:0;background:#fff;color:var(--ink);font:14px/1.5 Inter,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;padding-bottom:28px;-webkit-tap-highlight-color:transparent;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}button{border:0;cursor:pointer;font:inherit;color:inherit;background:none;touch-action:manipulation}input{font:inherit}svg{display:block}
+:focus-visible{outline:2px solid var(--brand);outline-offset:2px}
+.container{width:100%;max-width:680px;margin:auto;padding:0 12px}
+.header{position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-bottom:1px solid #eee}
+.header-inner{height:54px;display:flex;align-items:center;gap:9px}
+.logo{flex:none}.logo svg{width:29px;height:29px}
+.search{height:38px;flex:1;display:flex;align-items:center;gap:8px;border:1px solid #ececf0;border-radius:999px;padding:0 11px;background:#fff;box-shadow:0 1px 4px rgba(0,0,0,.04);transition:border-color .18s,box-shadow .18s}
+.search:focus-within{border-color:var(--brand);box-shadow:0 0 0 3px rgba(101,88,232,.13)}
+.search svg{width:17px;flex:none}
+.search input{min-width:0;flex:1;border:0;outline:0;background:none;font-size:16px}
+.divider{width:1px;height:20px;background:#e5e6ea}
+.loc{display:flex;align-items:center;gap:5px;font-weight:700;font-size:12px;white-space:nowrap}.loc svg{width:16px}
+.crumbs{display:flex;gap:8px;align-items:center;padding:13px 1px 8px;font-size:11px;font-weight:700;color:#777d86}
+.back{color:var(--pink)}
+.crumbs .last{overflow:hidden;text-overflow:ellipsis;white-space:nowrap;color:#a2a7ae}
+.title{font-size:19px;font-weight:850;letter-spacing:-.3px;margin:4px 0 2px}
+.subtitle{color:var(--muted);font-size:12px;margin-bottom:14px}
+.event-note{padding:12px 13px;border:1px solid #edeff3;border-left:3px solid var(--brand);border-radius:12px;background:var(--gray);font-size:11px;color:#666d76;margin-bottom:14px}
+.event-note b{color:#24272b}
+.ticket{position:relative;background:#f8f9fb;border:1px solid #e8eaee;border-radius:14px;margin:10px 0;overflow:hidden;transition:border-color .18s,box-shadow .18s,background .18s;animation:rise .45s cubic-bezier(.22,1,.36,1) both}
+.ticket:nth-child(2){animation-delay:.04s}.ticket:nth-child(3){animation-delay:.08s}.ticket:nth-child(4){animation-delay:.12s}.ticket:nth-child(5){animation-delay:.16s}.ticket:nth-child(6){animation-delay:.2s}.ticket:nth-child(7){animation-delay:.24s}.ticket:nth-child(8){animation-delay:.28s}.ticket:nth-child(9){animation-delay:.32s}.ticket:nth-child(10){animation-delay:.36s}
+@media(hover:hover){.ticket:not(.sold):hover{border-color:#d9dce3;box-shadow:0 6px 18px rgba(23,24,26,.07)}}
+.ticket.selected{border-color:var(--brand);background:#f7f6ff;box-shadow:inset 0 0 0 1px var(--brand),0 8px 22px rgba(101,88,232,.16)}
+.ticket.shake{animation:shake .3s}
+.ticket.sold{opacity:.55;background:#f3f4f6}
+.ribbon{background:var(--grad);color:#fff;font-size:9px;font-weight:800;padding:4px 12px;letter-spacing:.4px}
+.body{padding:13px}
+.head{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.name{font-size:14px;font-weight:850;letter-spacing:-.2px;margin:0}
+.status{display:inline-flex;align-items:center;gap:5px;flex:none;font-size:9px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;padding:4px 9px;border-radius:999px;white-space:nowrap}
+.status::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.status.on{color:var(--green);background:rgba(8,168,91,.1)}
+.status.off{color:var(--pink);background:rgba(210,51,105,.09)}
+.desc{font-size:10px;color:#8b9199;margin:4px 0 0}
+.rule{font-size:10px;color:#33383e;margin-top:8px}
+.price-row{display:flex;align-items:end;justify-content:space-between;gap:10px;margin-top:12px}
+.price{font-size:16px;font-weight:850;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
+.old{font-size:9px;color:#a0a5ad;text-decoration:line-through;margin-left:5px}
+.save{display:inline-block;background:var(--green);color:#fff;border-radius:4px;padding:2px 5px;font-size:8px;font-weight:800;margin-bottom:4px}
+.action{margin-top:12px}
+.choose{width:100%;padding:10px;border-radius:10px;background:var(--grad);color:#fff;font-size:11px;font-weight:800;letter-spacing:.3px;box-shadow:0 4px 12px rgba(101,88,232,.22);transition:transform .15s}
+.choose:active{transform:scale(.98)}
+.choose:disabled{background:#d6d9de;color:#777;cursor:not-allowed;box-shadow:none;transform:none}
+.stepper{display:flex;align-items:center;justify-content:space-between;gap:10px;animation:pop .2s ease}
+.step-btn{width:42px;height:40px;border-radius:11px;font-size:20px;font-weight:800;display:grid;place-items:center;user-select:none;-webkit-user-select:none;background:var(--grad);color:#fff;transition:transform .15s}
+.step-btn:active{transform:scale(.9)}
+.step-qty{min-width:34px;text-align:center;font-size:17px;font-weight:850;font-variant-numeric:tabular-nums}
+.quantity-panel{position:sticky;bottom:calc(10px + env(safe-area-inset-bottom));z-index:10;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid #e5e6ea;border-radius:16px;padding:13px;box-shadow:0 12px 36px rgba(23,24,26,.12);margin:18px 0 12px}
+.quantity-panel.pulse{animation:pulse .35s ease}
+.selected-info{display:flex;justify-content:space-between;gap:10px;align-items:flex-start;margin-bottom:11px}
+.selected-name{font-size:12px;font-weight:850}
+.quantity-label{font-size:11px;color:#727982}
+.selected-price{font-size:14px;font-weight:850;white-space:nowrap;font-variant-numeric:tabular-nums}
+.total{display:flex;justify-content:space-between;align-items:center;border-top:1px solid #eee;margin-top:12px;padding-top:11px}
+.total span{font-size:11px;color:#727982}
+.total strong{font-size:17px;font-variant-numeric:tabular-nums;letter-spacing:-.2px}
+.continue{width:100%;margin-top:12px;padding:12px;border-radius:11px;background:var(--grad);color:#fff;font-weight:800;box-shadow:0 6px 16px rgba(101,88,232,.25);transition:transform .15s}
+.continue:active{transform:scale(.99)}
+.continue:disabled{opacity:.4;cursor:not-allowed;box-shadow:none;transform:none}
+.toast{position:fixed;left:50%;top:66px;transform:translate(-50%,-8px);background:#23262b;color:#fff;font-size:12px;font-weight:600;padding:9px 15px;border-radius:999px;box-shadow:0 8px 24px rgba(0,0,0,.22);opacity:0;pointer-events:none;transition:.25s;z-index:60;white-space:nowrap;max-width:90vw}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+.footer{margin-top:18px;background:var(--gray);border-top:1px solid var(--line);text-align:center;padding:24px 12px 18px;content-visibility:auto;contain-intrinsic-size:auto 220px}
+.footer-logo{font-weight:900;color:#f45d22;font-size:23px;font-style:italic;letter-spacing:-.5px}
+.footer p{font-size:9.5px;color:#6d737b;line-height:1.6;margin:9px auto 0;max-width:390px}
+.copyright{border-top:1px solid #e5e6ea;margin-top:14px;padding-top:9px;font-size:8.5px;color:#a0a5ad}
+@keyframes rise{from{transform:translateY(10px);opacity:0}}
+@keyframes pop{from{transform:scale(.92);opacity:0}}
+@keyframes pulse{50%{transform:scale(1.012)}}
+@keyframes shake{20%,60%{transform:translateX(-4px)}40%,80%{transform:translateX(4px)}}
+@media(min-width:700px){.container{max-width:720px;padding:0 18px}.title{font-size:22px}.header-inner{height:62px}.name{font-size:15px}.body{padding:16px}.quantity-panel{bottom:calc(18px + env(safe-area-inset-bottom))}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*::before,*::after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="header"><div class="container header-inner">
+<a class="logo" href="index.html" aria-label="TipTip"><svg viewBox="0 0 48 48" fill="none"><defs><linearGradient id="g" x1="8" y1="8" x2="40" y2="40"><stop stop-color="#ffb300"/><stop offset="1" stop-color="#f45d22"/></linearGradient></defs><path d="M9 7.5C22 9 33.5 15.5 40 24 33.5 32.5 22 39 9 40.5c5.2-5.4 8-11 8-16.5S14.2 12.9 9 7.5Z" fill="url(#g)"/></svg></a>
+<div class="search"><svg viewBox="0 0 24 24" fill="none" stroke="#8a8f98" stroke-width="2.2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m20.5 20.5-4-4"/></svg><input type="search" placeholder="Cari di TipTip" aria-label="Cari di TipTip" autocomplete="off"><span class="divider"></span><span class="loc"><svg viewBox="0 0 24 24" fill="#23262b"><path d="M12 2a7.3 7.3 0 0 0-7.3 7.3c0 5.2 6.2 11.6 6.9 12.3a.6.6 0 0 0 .8 0c.7-.7 6.9-7.1 6.9-12.3A7.3 7.3 0 0 0 12 2Zm0 10a2.7 2.7 0 1 1 0-5.4 2.7 2.7 0 0 1 0 5.4Z"/></svg><span>Semua Lokasi</span></span></div>
+</div></header>
+<main class="container">
+<nav class="crumbs"><a class="back" href="index.html">‹ Kembali</a><span>›</span><span>TipTip</span><span>›</span><span class="last">[SOLO] Timeless Project Live</span></nav>
+<h1 class="title">Pilih Tiket</h1><div class="subtitle">[SOLO] Timeless Project Live · 13 Nov 2026 · De Tjolomadoe</div>
+<div class="event-note"><b>Ketentuan:</b> seluruh pemegang tiket wajib berusia minimal 21 tahun. Pilih satu kategori tiket, atur jumlah (maks. 5 pembelian per transaksi), lalu lanjutkan pengisian data.</div>
+<noscript><div class="event-note"><b>Aktifkan JavaScript</b> untuk memilih tiket.</div></noscript>
+<section aria-label="Daftar tiket">
+<article class="ticket" data-key="presale2-g4ul" data-name="Presale 2 - G4UL" data-price="125000" data-per="1"><div class="body"><div class="head"><h2 class="name">Presale 2 - G4UL</h2><span class="status on">On Sale</span></div><p class="desc">Tiket individual</p><div class="price-row"><span class="price">Rp125.000</span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket" data-key="presale2-borju" data-name="Presale 2 - BORJU" data-price="199000" data-per="1"><div class="body"><div class="head"><h2 class="name">Presale 2 - BORJU</h2><span class="status on">On Sale</span></div><p class="desc">Tiket individual</p><div class="price-row"><span class="price">Rp199.000</span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket" data-key="presale2-sobat" data-name="Presale 2 - Sobat" data-price="230000" data-per="2"><div class="ribbon">Tiket Bundle · 2 Tiket</div><div class="body"><div class="head"><h2 class="name">Presale 2 - Sobat</h2><span class="status on">On Sale</span></div><p class="desc">Bundle 2 tiket G4UL</p><p class="rule">Harga berlaku untuk 2 tiket G4UL</p><div class="price-row"><span><span class="save">Hemat Rp20.000</span><br><span class="price">Rp230.000</span> <span class="old">Rp250.000</span></span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket" data-key="presale2-dewa-dewi" data-name="Presale 2 - Dewa Dewi" data-price="370000" data-per="2"><div class="ribbon">Tiket Bundle · 2 Tiket</div><div class="body"><div class="head"><h2 class="name">Presale 2 - Dewa Dewi</h2><span class="status on">On Sale</span></div><p class="desc">Bundle 2 tiket BORJU</p><p class="rule">Harga berlaku untuk 2 tiket BORJU</p><div class="price-row"><span><span class="save">Hemat Rp28.000</span><br><span class="price">Rp370.000</span> <span class="old">Rp398.000</span></span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket" data-key="reguler-g4ul" data-name="Reguler - G4UL" data-price="180000" data-per="1"><div class="body"><div class="head"><h2 class="name">Reguler - G4UL</h2><span class="status on">On Sale</span></div><p class="desc">Tiket individual</p><div class="price-row"><span class="price">Rp180.000</span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket" data-key="reguler-borju" data-name="Reguler - BORJU" data-price="275000" data-per="1"><div class="body"><div class="head"><h2 class="name">Reguler - BORJU</h2><span class="status on">On Sale</span></div><p class="desc">Tiket individual</p><div class="price-row"><span class="price">Rp275.000</span></div><div class="action"><button class="choose" type="button">Pilih Tiket</button></div></div></article>
+<article class="ticket sold"><div class="body"><div class="head"><h2 class="name">Presale 1 - G4UL</h2><span class="status off">Habis</span></div><div class="price-row"><span class="price">Rp80.000</span></div><div class="action"><button class="choose" type="button" disabled>Tiket Habis</button></div></div></article>
+<article class="ticket sold"><div class="body"><div class="head"><h2 class="name">Presale 1 - BORJU</h2><span class="status off">Habis</span></div><div class="price-row"><span class="price">Rp160.000</span></div><div class="action"><button class="choose" type="button" disabled>Tiket Habis</button></div></div></article>
+<article class="ticket sold"><div class="ribbon">Tiket Bundle · 2 Tiket</div><div class="body"><div class="head"><h2 class="name">Presale 1 - Sobat</h2><span class="status off">Habis</span></div><p class="desc">Bundle 2 tiket G4UL</p><div class="price-row"><span><span class="price">Rp150.000</span> <span class="old">Rp160.000</span></span></div><div class="action"><button class="choose" type="button" disabled>Tiket Habis</button></div></div></article>
+<article class="ticket sold"><div class="ribbon">Tiket Bundle · 2 Tiket</div><div class="body"><div class="head"><h2 class="name">Presale 1 - Dewa Dewi</h2><span class="status off">Habis</span></div><p class="desc">Bundle 2 tiket BORJU</p><div class="price-row"><span><span class="price">Rp295.000</span> <span class="old">Rp320.000</span></span></div><div class="action"><button class="choose" type="button" disabled>Tiket Habis</button></div></div></article>
+</section>
+<div class="stepper" id="stepper" role="group" aria-label="Atur jumlah tiket" hidden><button class="step-btn" type="button" data-step="-1" aria-label="Kurangi jumlah">−</button><span class="step-qty" aria-live="polite">1</span><button class="step-btn" type="button" data-step="1" aria-label="Tambah jumlah">+</button></div>
+<section class="quantity-panel" id="summary" aria-label="Ringkasan pilihan">
+<div class="selected-info"><div><div class="selected-name" id="selectedName">Belum memilih tiket</div><div class="quantity-label" id="selectedHint">Pilih kategori tiket terlebih dahulu</div></div><div class="selected-price" id="unitPrice">Rp0</div></div>
+<div class="total"><span id="ticketCountLabel">Total tiket</span><strong id="total">Rp0</strong></div>
+<button class="continue" id="continue" type="button" disabled>Lanjutkan Isi Data →</button>
+</section>
+</main>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+<footer class="footer"><div class="footer-logo">TipTip</div><p>PT. Tiptip Network Indonesia<br>Go Work Central Park, Central Park Mall, Level LG, Unit L109-114, Jakarta 11470</p><div class="copyright">PT. TIPTIP NETWORK INDONESIA © 2022 - 2026</div></footer>
+<script>
+(()=>{
+'use strict';
+const MAX=5,$=s=>document.querySelector(s),$$=s=>[...document.querySelectorAll(s)],fmt=n=>'Rp'+Number(n).toLocaleString('id-ID');
+const smooth=matchMedia('(prefers-reduced-motion:reduce)').matches?'auto':'smooth';
+const cards=$$('.ticket[data-key]'),panel=$('#summary'),nameEl=$('#selectedName'),hintEl=$('#selectedHint'),unitEl=$('#unitPrice'),countEl=$('#ticketCountLabel'),totalEl=$('#total'),next=$('#continue'),toast=$('#toast'),stepper=$('#stepper'),qtyEl=stepper.querySelector('.step-qty'),minusBtn=stepper.querySelector('[data-step="-1"]');
+let sel=null,qty=1,toastT=0;
+const clamp=n=>Math.min(MAX,Math.max(1,Number.isFinite(n)?Math.round(n):1));
+const flash=(el,c)=>{el.classList.remove(c);void el.offsetWidth;el.classList.add(c)};
+const say=m=>{toast.textContent=m;toast.classList.add('show');clearTimeout(toastT);toastT=setTimeout(()=>toast.classList.remove('show'),1800)};
+const buzz=()=>navigator.vibrate?.(10);
+const sync=()=>{
+ const p=new URLSearchParams(location.search);
+ if(sel){p.set('ticket',sel.dataset.key);p.set('qty',qty)}else{p.delete('ticket');p.delete('qty')}
+ const q=p.toString();
+ try{history.replaceState(null,'',q?'?'+q:location.pathname+location.hash)}catch(_){}
+};
+function render(){
+ cards.forEach(c=>{const on=c===sel;c.classList.toggle('selected',on);c.querySelector('.choose').hidden=on});
+ if(!sel){
+  stepper.hidden=true;
+  nameEl.textContent='Belum memilih tiket';hintEl.textContent='Pilih kategori tiket terlebih dahulu';
+  unitEl.textContent=fmt(0);countEl.textContent='Total tiket';totalEl.textContent=fmt(0);next.disabled=true;
+  return;
+ }
+ sel.querySelector('.action').appendChild(stepper);
+ stepper.hidden=false;
+ qtyEl.textContent=qty;
+ minusBtn.setAttribute('aria-label',qty===1?'Hapus pilihan tiket':'Kurangi jumlah');
+ const per=Number(sel.dataset.per)||1;
+ nameEl.textContent=sel.dataset.name;
+ hintEl.textContent='1 pembelian = '+per+' tiket';
+ unitEl.textContent=fmt(sel.dataset.price);
+ countEl.textContent='Total '+(qty*per)+' tiket';
+ totalEl.textContent=fmt(sel.dataset.price*qty);
+ next.disabled=false;
+}
+function select(card){
+ if(!card||card.classList.contains('sold'))return;
+ sel=card;qty=1;render();sync();flash(panel,'pulse');
+ const r=panel.getBoundingClientRect();
+ if(r.top<0||r.bottom>innerHeight)panel.scrollIntoView({behavior:smooth,block:'center'});
+}
+document.addEventListener('click',e=>{
+ const choose=e.target.closest('.choose');
+ if(choose){select(choose.closest('.ticket'));return}
+ const step=e.target.closest('.step-btn');
+ if(!step||step.closest('.ticket')!==sel)return;
+ if(Number(step.dataset.step)>0){
+  if(qty>=MAX){flash(sel,'shake');say('Maksimal '+MAX+' pembelian per transaksi');return}
+  qty++;buzz();
+ }else if(qty<=1){sel=null;qty=1;render();sync();say('Pilihan tiket dihapus');return}
+ else{qty--;buzz()}
+ render();sync();
+});
+next.addEventListener('click',()=>{
+ if(!sel||next.disabled)return;
+ next.disabled=true;
+ location.href='form.html?'+new URLSearchParams({ticket:sel.dataset.key,qty:String(qty)});
+});
+const init=new URLSearchParams(location.search),first=cards.find(c=>c.dataset.key===init.get('ticket'));
+if(first){sel=first;qty=clamp(Number(init.get('qty')))}
+sync();render();
+})();
+</script>
+</body>
+</html>
